@@ -4,16 +4,45 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 // Collect employee data
 const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
+const employeesArray = [];
+let moreEntries = true;
+while (moreEntries) {
+  var firstName = window.prompt("Enter First Name");
+  var lastName = window.prompt("Enter Last Name");
+  var salary = window.prompt("Enter Salary");
+    
+  while (isNaN(salary)) {
+    alert ("Salary must be numeric."); 
+    salary = window.prompt("Re-enter Salary:");
+  }
+
+  employeesArray.push({
+    firstName: firstName,
+    lastName: lastName,
+    salary: salary});
+  // If user pressed Cancel, immediately end function
+  moreEntries = confirm("Do you want to continue?")
+  } 
+  return employeesArray; 
 }
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
+  let sum = 0;
+  for (let i = 0; i < employeesArray.length; i++) {
+    sum += +employeesArray[i].salary;
+  }
+console.log("The average employee salary between our" + (employeesArray.length) + "employee(s) is" + sum / employeesArray.length);
 }
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
+  const randomIndex = [Math.floor(Math.random() * employeesArray.length)];
+  const itemFirstName = employeesArray[randomIndex].firstName;
+  const itemLastName = employeesArray[randomIndex].lastName;
+  console.log("Congratulations to " + itemFirstName +" "+ itemLastName + ", our random drawing winner!"); 
 }
 
 /*
