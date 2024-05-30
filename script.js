@@ -33,7 +33,7 @@ const displayAverageSalary = function(employeesArray) {
   for (let i = 0; i < employeesArray.length; i++) {
     sum += +employeesArray[i].salary;
   }
-console.log("The average employee salary between our" + (employeesArray.length) + "employee(s) is " + sum / employeesArray.length);
+console.log("The average employee salary between our" + (employeesArray.length) + "employee(s) is" +" "+ sum / employeesArray.length);
 }
 
 // Select a random employee
